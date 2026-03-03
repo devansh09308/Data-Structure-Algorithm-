@@ -1,0 +1,14 @@
+def temp(temperatures):
+    n = len(temperatures)
+    ans = [0] * n
+    stack = []
+    for i, t in enumerate(temperatures):
+        while stack and t > temperatures[stack[-1]]:
+            j = stack.pop()
+            ans[j] = i - j
+        stack.append(i)
+
+    return ans
+temperatures = [73,74,75,71,69,72,76,73]
+
+print(temp(temperatures))
